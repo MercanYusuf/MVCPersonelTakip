@@ -1,0 +1,42 @@
+﻿@using PersonelTakip.Models.Veritabani
+@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<TBLDepartman>
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+@using (Html.BeginForm())
+{
+    <label>Departman Ara:</label>
+    @Html.Editor("ara")
+    <input type="submit" value="ara" class="btn btn-primary" />
+}
+<h2>Departman Listesi</h2>
+
+<table class="table table-bordered">
+    <h3 class="text-center">Departmanlar</h3>
+    <tr>
+        <th>ID</th>
+        <th>Departman</th>
+        <th>Güncelle</th>
+        <th>Sil</th>
+    </tr>
+    @for (int i = 0; i < Model.Count; i++)
+    {
+        <tr>
+            <th>@Model[i].ID</th>
+            <td>@Model[i].Departman</td>
+            <td><a href="/Departman/GuncelleBilgiGetir/@Model[i].ID" class="btn btn-success">Güncelle</a></td>
+            <td><a href="/Departman/SilBilgiGetir/@Model[i].ID" class="btn btn-danger">Sil</a></td>
+
+
+        </tr>
+    }
+
+</table>
+@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }))
+Toplam @Model.TotalItemCount Kayıt Listelendi. Bu sayfada @Model.FirstItemOnPage ile @Model.LastItemOnPage arasında kayıt listelendi.
+<br />
+<br />
+<a href="/Departman/Ekle/" class="btn btn-primary"> Yeni Departman Ekle</a>

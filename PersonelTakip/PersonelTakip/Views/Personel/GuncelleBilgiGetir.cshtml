@@ -1,0 +1,28 @@
+﻿@model PersonelTakip.Models.Veritabani.TBLPersonel
+@{
+    ViewBag.Title = "GuncelleBilgiGetir";
+}
+
+<h2>Personel Güncelleme Sayfası</h2>
+
+@using (Html.BeginForm("Guncelle", "Personel", FormMethod.Post))
+{
+    <label>ID</label>
+    @Html.TextBoxFor(x => x.ID, new { @class = "form-control" })
+    <label>Ad Soyad </label>
+    @Html.TextBoxFor(x => x.AdiSoyadi, new { @class = "form-control" })
+    <label>Departman</label>
+    @Html.DropDownList("DepartmanID",null,new {@class="form-control"})
+    <label>Telefon</label>
+    @Html.TextBoxFor(x => x.Telefon, new { @class = "form-control" })
+    <label>Şehir</label>
+    @Html.TextBoxFor(x => x.Sehir, new { @class = "form-control" })
+    <label>E-Mail</label>
+    @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+    <label>Tarih</label>
+    @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Güncelle</button>
+    @Html.ActionLink("Ana Sayfa", "Index", null, new { @class = "btn btn-primary" })
+
+}

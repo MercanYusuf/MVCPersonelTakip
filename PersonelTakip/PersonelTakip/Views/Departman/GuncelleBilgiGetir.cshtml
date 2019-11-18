@@ -1,0 +1,21 @@
+﻿@model PersonelTakip.Models.Veritabani.TBLDepartman
+@{
+    ViewBag.Title = "GuncelleBilgiGetir";
+}
+
+<h2>Güncelleme Sayfası</h2>
+
+
+@using (Html.BeginForm("Guncelle", "Departman", FormMethod.Post))
+{
+    <label>ID</label>
+    @Html.TextBoxFor(x => x.ID, new { @class = "form-control" })
+    <br />
+    <label>Departman Ad </label>
+    @Html.TextBoxFor(x=>x.Departman,new {@class="form-control"})
+    <br/>
+
+
+     <button class="btn btn-success">Güncelle</button>
+    @Html.ActionLink("Ana Sayfa","Index",null,new {@class="btn btn-primary"})
+}

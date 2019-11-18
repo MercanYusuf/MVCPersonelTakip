@@ -1,0 +1,19 @@
+﻿@model PersonelTakip.Models.Veritabani.TBLDepartman
+@{
+    ViewBag.Title = "SilBilgiGetir";
+}
+
+<h2>Departman Silmek İstediğinize Emin misiniz ? </h2>
+
+@using (Html.BeginForm("Sil", "Departman", FormMethod.Post))
+{
+    <label>ID</label>
+    @Html.TextBoxFor(x => x.ID, new { @class = "form-control" })
+    <br />
+    <label>Departman</label>
+    @Html.TextBoxFor(x => x.Departman, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-danger">Sil</button>
+    @Html.ActionLink("Ana Sayfa","Index",null,new {@class="btn btn-primary"})
+}
+
